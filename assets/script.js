@@ -21,9 +21,22 @@ var formSubmitHandler = function (event) {
     numArray.push(i);
   }
   console.log(numArray);
+  // create header for table and add to dom
+  var tableHeaderEl = document.createElement("h2");
+  tableHeaderEl.className = "text-light text-center";
+  tableHeaderEl.textContent = "Table for Number " + parsedTableNumber;
+  resultsContainer.appendChild(tableHeaderEl);
   // create variable for numbers array length
   var instances = numArray.length;
-  console.log(instances);
+  // add instances to dom
+  var instancesEl = document.createElement("p");
+  instancesEl.className = "fs-5 text-light text-center";
+  instancesEl.textContent = "instances: " + instances;
+  resultsContainer.appendChild(instancesEl);
+  // create table
+  var tableEl = document.createElement("table");
+  tableEl.className = "table table-dark table-striped";
+  resultsContainer.appendChild(tableEl);
 
   // take each number from array and print the sum of each digit
   // - until it reaches the original table number
