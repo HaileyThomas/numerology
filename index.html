@@ -11,40 +11,44 @@
 <body>
     <div class="container-md w-70">
         <header class="row justify-content-md-center">
-            <img src="./assets/header.png" class="img-fluid" alt="Numerology Table Generator" />
+            <div class="col-sm-10 col-md-10 col-lg-7">
+                <img src="./assets/header.png" class="img-fluid" alt="Numerology Table Generator" />
+            </div>
         </header>
         <main class="row justify-content-center">
-            <form>
-                <div class="col-sm p-2">
-                    <input id="number-list" class="form-control" list="numberOptions" placeholder="Starting Number">
-                    <datalist id="numberOptions">
-                        <option value="1" />
-                        <option value="2" />
-                        <option value="3" />
-                        <option value="4" />
-                        <option value="5" />
-                        <option value="6" />
-                        <option value="7" />
-                        <option value="8" />
-                        <option value="9" />
-                    </datalist>
-                </div>
-                <div class="col-sm p-2">
-                    <input type="number" class="form-control" id="number-input" placeholder="Ending Number" min="1000" max="999999"/>
-                </div>
-                <div class="col-sm d-grid mx-auto p-2">
-                    <button type="submit" id="number-submit" class="btn btn-outline-light">Submit</button>
-                </div>
-            </form>
+            <div class="col-sm-10 col-md-10 col-lg-7">
+                <form id="main-form">
+                    <div class="col-sm p-2">
+                        <input id="number-list" class="form-control" list="numberOptions" placeholder="Starting Number">
+                        <datalist id="numberOptions">
+                            <option value="1" />
+                            <option value="2" />
+                            <option value="3" />
+                            <option value="4" />
+                            <option value="5" />
+                            <option value="6" />
+                            <option value="7" />
+                            <option value="8" />
+                            <option value="9" />
+                        </datalist>
+                    </div>
+                    <div class="col-sm p-2">
+                        <input type="number" class="form-control" id="number-input" placeholder="Ending Number" min="1000" max="999999"/>
+                    </div>
+                    <div class="col-sm d-grid mx-auto p-2">
+                        <button type="submit" id="number-submit" class="btn btn-outline-light">Submit</button>
+                    </div>
+                </form>
+            </div>
         </main>
         <section class="row justify-content-md-center">
-            <div id="table-container">
-                
+            <div id="table-container" class="col-sm-10 col-md-10 col-lg-7">
+
             </div>
         </section>
         <footer class="row justify-content-md-center">
-            <p>
-
+            <p class="fs-5 text-light text-center">
+                &copy; Hailey Thomas
             </p>
         </footer>
     </div>
