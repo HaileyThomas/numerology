@@ -17,10 +17,10 @@ var formSubmitHandler = function (event) {
   // - until the sum reaches the maxNumber
   // create array for our numbers Array
   var numArray = [];
-  // add the table number to the array
-  numArray.push(parseInt(tableNumber));
+  // parse tableNumber back into an integer
+  var parsedTableNumber = parseInt(tableNumber);
   // create for loop
-  for (i = tableNumber; i <= maxNumber; i += 9) {
+  for (i = parsedTableNumber; i <= maxNumber; i += 9) {
     console.log(i);
   }
 
