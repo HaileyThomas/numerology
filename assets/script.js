@@ -1,6 +1,6 @@
 var formEl = document.querySelector("#main-form");
-var numOneInput = document.querySelector("#number-list");
-var numTwoInput = document.querySelector("#number-input");
+var numInput = document.querySelector("#number-list");
+var maxInput = document.querySelector("#max-input");
 var resultsContainer = document.querySelector("#table-container");
 
 var formSubmitHandler = function (event) {
