@@ -21,9 +21,9 @@ var formSubmitHandler = function (event) {
   var parsedTableNumber = parseInt(tableNumber);
   // create for loop
   for (i = parsedTableNumber; i <= maxNumber; i += 9) {
-    console.log(i);
+    numArray.push(i);
   }
-
+  console.log(numArray);
   // take each number from array and print the sum of each digit
   // - until it reaches the original table number
   // - ie: tableNumber is 2, second index would be 11, it takes 11 and
