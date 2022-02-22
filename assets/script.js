@@ -9,7 +9,9 @@ var formSubmitHandler = function (event) {
 
   // check to see if results container already has results and clear
   // get value for number input and create variable for tableNumber
+  var tableNumber = numInput.value;
   // get value for max input and create variable for maxNumber
+  var maxNumber = maxInput.value;
   // create array of numbers that starts with tableNumber plus 9,
   // - gets the sum, adds that to the next index of the array, then continues
   // - until the sum reaches the maxNumber
