@@ -15,6 +15,15 @@ var formSubmitHandler = function (event) {
   // create array of numbers that starts with tableNumber plus 9,
   // - gets the sum, adds that to the next index of the array, then continues
   // - until the sum reaches the maxNumber
+  // create array for our numbers Array
+  var numArray = [];
+  // add the table number to the array
+  numArray.push(parseInt(tableNumber));
+  // create for loop
+  for (i = tableNumber; i <= maxNumber; i += 9) {
+    console.log(i);
+  }
+
   // take each number from array and print the sum of each digit
   // - until it reaches the original table number
   // - ie: tableNumber is 2, second index would be 11, it takes 11 and
