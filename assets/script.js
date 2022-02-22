@@ -12,18 +12,19 @@ var formSubmitHandler = function (event) {
   var tableNumber = numInput.value;
   // get value for max input and create variable for maxNumber
   var maxNumber = maxInput.value;
-  // create array of numbers that starts with tableNumber plus 9,
-  // - gets the sum, adds that to the next index of the array, then continues
-  // - until the sum reaches the maxNumber
   // create array for our numbers Array
   var numArray = [];
   // parse tableNumber back into an integer
   var parsedTableNumber = parseInt(tableNumber);
-  // create for loop
+  // create for loop and push results into number array
   for (i = parsedTableNumber; i <= maxNumber; i += 9) {
     numArray.push(i);
   }
   console.log(numArray);
+  // create variable for numbers array length
+  var instances = numArray.length;
+  console.log(instances);
+
   // take each number from array and print the sum of each digit
   // - until it reaches the original table number
   // - ie: tableNumber is 2, second index would be 11, it takes 11 and
