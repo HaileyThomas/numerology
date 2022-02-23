@@ -37,6 +37,15 @@ var formSubmitHandler = function (event) {
   var tableEl = document.createElement("table");
   tableEl.className = "table table-dark table-striped";
   resultsContainer.appendChild(tableEl);
+  // create for loop to loop over numbers area and create table elements
+  for (i = 0; i <= numArray.length; i++) {
+    // create table row
+    var tableRowEl = document.createElement("tr");
+    tableEl.appendChild(tableRowEl);
+    // create variable for current number
+    var currentNumber = numArray[i];
+    console.log(currentNumber);
+  }
 
   // take each number from array and print the sum of each digit
   // - until it reaches the original table number
