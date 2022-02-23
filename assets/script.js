@@ -7,7 +7,7 @@ var resultsContainer = document.querySelector("#table-container");
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
-  // check to see if results container already has results and clear
+  // TODO check to see if results container already has results and clear
   // get value for number input and create variable for tableNumber
   var tableNumber = numInput.value;
   // get value for max input and create variable for maxNumber
