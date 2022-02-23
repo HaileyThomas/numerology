@@ -34,17 +34,19 @@ var formSubmitHandler = function (event) {
   resultsContainer.appendChild(instancesEl);
   // create table
   var tableEl = document.createElement("table");
-  tableEl.className = "table table-dark table-striped";
+  tableEl.className = "table border border-3 table-dark fs-4";
   resultsContainer.appendChild(tableEl);
   // create for loop to loop over numbers area and create table elements
   for (var i = 0; i <= numArray.length; i++) {
     // create table row
     var tableRowEl = document.createElement("tr");
+    tableRowEl.className = "text-center";
     tableEl.appendChild(tableRowEl);
     // create variable for current number
     var currentNumber = numArray[i];
     // create table data element for current number
     var curNumTableData = document.createElement("td");
+    curNumTableData.className = "col-2";
     curNumTableData.textContent = currentNumber;
     tableRowEl.appendChild(curNumTableData);
     // break apart current number into digit array
@@ -57,6 +59,7 @@ var formSubmitHandler = function (event) {
     var digitSum = parsedDigits.reduce(reducer);
     // create table data element for result
     var sumTableData = document.createElement("td");
+    sumTableData.className = "col-2 p-2";
     sumTableData.textContent = digitSum;
     tableRowEl.appendChild(sumTableData);
     // check to see if digit sum is greater than starting number
@@ -70,6 +73,7 @@ var formSubmitHandler = function (event) {
       var newSum = parsedNewDigits.reduce(reducer);
       // create table data element for result
       var newTableData = document.createElement("td");
+      newTableData.className = "col-2";
       newTableData.textContent = newSum;
       tableRowEl.appendChild(newTableData);
       // check to see if new sum is greater than starting number
@@ -83,6 +87,7 @@ var formSubmitHandler = function (event) {
         var lastSum = parsedLastDigits.reduce(reducer);
         // create table data element for last result
         var lastTableData = document.createElement("td");
+        lastTableData.className = "col-2";
         lastTableData.textContent = lastSum;
         tableRowEl.appendChild(lastTableData);
       }
