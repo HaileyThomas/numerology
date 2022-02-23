@@ -52,16 +52,27 @@ var formSubmitHandler = function (event) {
     digits = currentNumber.toString().split("");
     // parse digit string into integers
     var parsedDigits = digits.map((x) => parseInt(x));
-    console.log("parsedDigits: " + parsedDigits);
-    console.log("parsedDigits.length: " + parsedDigits.length);
     // add together parsed digits
     const reducer = (accumulator, curr) => accumulator + curr;
     var digitSum = parsedDigits.reduce(reducer);
-    console.log("digitSum: " + digitSum);
     // create table data element for result
     var sumTableData = document.createElement("td");
     sumTableData.textContent = digitSum;
     tableRowEl.appendChild(sumTableData);
+    // check to see if digit sum is greater than starting number
+    if (digitSum > parsedTableNumber) {
+      // break apart digit sum
+      var newDigits = [];
+      newDigits = digitSum.toString().split("");
+      // parse new digits from string to integers
+      var parsedNewDigits = newDigits.map((x) => parseInt(x));
+      // add together parsed digits
+      var newSum = parsedNewDigits.reduce(reducer);
+      // create table data element for result
+      var newTableData = document.createElement("td");
+      newTableData.textContent = newSum;
+      tableRowEl.appendChild(newTableData);
+    }
   }
 };
 
