@@ -47,34 +47,22 @@ var formSubmitHandler = function (event) {
     var curNumTableData = document.createElement("td");
     curNumTableData.textContent = currentNumber;
     tableRowEl.appendChild(curNumTableData);
-    // check to see if current number is greater than our main number
-    if (currentNumber > parsedTableNumber) {
-      // break apart current number into digit array
-      var digits = [];
-      digits = currentNumber.toString().split("");
-      // parse digit string into integers
-      var parsedDigits = digits.map((x) => parseInt(x));
-      console.log("parsedDigits: " + parsedDigits);
-      console.log("parsedDigits.length: " + parsedDigits.length);
-      // add together parsed digits
-      const reducer = (accumulator, curr) => accumulator + curr;
-      var digitSum = parsedDigits.reduce(reducer);
-      console.log("digitSum: " + digitSum);
-    } else {
-      // create another table data element for currentNumber
-      var curNumSumTableData = document.createElement("td");
-      curNumSumTableData.textContent = currentNumber;
-      tableRowEl.appendChild(curNumSumTableData);
-    }
+    // break apart current number into digit array
+    var digits = [];
+    digits = currentNumber.toString().split("");
+    // parse digit string into integers
+    var parsedDigits = digits.map((x) => parseInt(x));
+    console.log("parsedDigits: " + parsedDigits);
+    console.log("parsedDigits.length: " + parsedDigits.length);
+    // add together parsed digits
+    const reducer = (accumulator, curr) => accumulator + curr;
+    var digitSum = parsedDigits.reduce(reducer);
+    console.log("digitSum: " + digitSum);
+    // create table data element for result
+    var sumTableData = document.createElement("td");
+    sumTableData.textContent = digitSum;
+    tableRowEl.appendChild(sumTableData);
   }
-
-  // take each number from array and print the sum of each digit
-  // - until it reaches the original table number
-  // - ie: tableNumber is 2, second index would be 11, it takes 11 and
-  // - breaks it down to 1 + 1 = 2, stops because we are at tableNumber
-  // - next index is 20, breaks down to 2 + 0 and stops because it's 2
-  // - fourth index is 29, breaks down to 9 + 2 = 11, continues to
-  // - 1 + 1 = 2 then stops
 };
 
 formEl.addEventListener("submit", formSubmitHandler);
