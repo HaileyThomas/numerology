@@ -17,7 +17,7 @@ var formSubmitHandler = function (event) {
   // parse tableNumber back into an integer
   var parsedTableNumber = parseInt(tableNumber);
   // create for loop and push results into number array
-  for (i = parsedTableNumber; i <= maxNumber; i += 9) {
+  for (var i = parsedTableNumber; i <= maxNumber; i += 9) {
     numArray.push(i);
   }
   console.log(numArray);
@@ -31,21 +31,33 @@ var formSubmitHandler = function (event) {
   // add instances to dom
   var instancesEl = document.createElement("p");
   instancesEl.className = "fs-5 text-light text-center";
-  instancesEl.textContent = "instances: " + instances;
+  instancesEl.textContent = "Instances to " + maxNumber + " : " + instances;
   resultsContainer.appendChild(instancesEl);
   // create table
   var tableEl = document.createElement("table");
   tableEl.className = "table table-dark table-striped";
   resultsContainer.appendChild(tableEl);
   // create for loop to loop over numbers area and create table elements
-  for (i = 0; i <= numArray.length; i++) {
+  for (var i = 0; i <= numArray.length; i++) {
     // create table row
     var tableRowEl = document.createElement("tr");
     tableEl.appendChild(tableRowEl);
     // create variable for current number
     var currentNumber = numArray[i];
+    // crate table data element for current number
+    var curNumTableData = document.createElement("td");
+    curNumTableData.textContent = currentNumber;
+    tableRowEl.appendChild(curNumTableData);
     // check to see if current number is greater than our main number
     if (currentNumber > parsedTableNumber) {
+      // break apart current number into digit array
+      var digits = currentNumber.toString().split("");
+      //var digitsArray = digits.map(Number);
+      // create variable for sum of digits array
+      var digitSum = 0;
+      // create loop to add together digits
+      // for (var i = 0; i <= digitsArray.length; i++) {}
+      console.log(digits);
     }
   }
 
