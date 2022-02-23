@@ -44,7 +44,7 @@ var formSubmitHandler = function (event) {
     tableEl.appendChild(tableRowEl);
     // create variable for current number
     var currentNumber = numArray[i];
-    // crate table data element for current number
+    // create table data element for current number
     var curNumTableData = document.createElement("td");
     curNumTableData.textContent = currentNumber;
     tableRowEl.appendChild(curNumTableData);
@@ -58,6 +58,11 @@ var formSubmitHandler = function (event) {
       // create loop to add together digits
       // for (var i = 0; i <= digitsArray.length; i++) {}
       console.log(digits);
+    } else {
+      // create another table data element for currentNumber
+      var curNumSumTableData = document.createElement("td");
+      curNumSumTableData.textContent = currentNumber;
+      tableRowEl.appendChild(curNumSumTableData);
     }
   }
 
