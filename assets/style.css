@@ -1,3 +1,7 @@
 body {
   background-color: #163340;
 }
+
+.border {
+  border: 1px solid #ffffff;
+}
