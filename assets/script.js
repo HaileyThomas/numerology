@@ -17,21 +17,63 @@ var formSubmitHandler = function (event) {
   // parse tableNumber back into an integer
   var parsedTableNumber = parseInt(tableNumber);
   // create for loop and push results into number array
-  for (i = parsedTableNumber; i <= maxNumber; i += 9) {
+  for (var i = parsedTableNumber; i <= maxNumber; i += 9) {
     numArray.push(i);
   }
-  console.log(numArray);
+  // create header for table and add to dom
+  var tableHeaderEl = document.createElement("h2");
+  tableHeaderEl.className = "text-light text-center";
+  tableHeaderEl.textContent = "Table for Number " + parsedTableNumber;
+  resultsContainer.appendChild(tableHeaderEl);
   // create variable for numbers array length
   var instances = numArray.length;
-  console.log(instances);
-
-  // take each number from array and print the sum of each digit
-  // - until it reaches the original table number
-  // - ie: tableNumber is 2, second index would be 11, it takes 11 and
-  // - breaks it down to 1 + 1 = 2, stops because we are at tableNumber
-  // - next index is 20, breaks down to 2 + 0 and stops because it's 2
-  // - fourth index is 29, breaks down to 9 + 2 = 11, continues to
-  // - 1 + 1 = 2 then stops
+  // add instances to dom
+  var instancesEl = document.createElement("p");
+  instancesEl.className = "fs-5 text-light text-center";
+  instancesEl.textContent = "Instances to " + maxNumber + " : " + instances;
+  resultsContainer.appendChild(instancesEl);
+  // create table
+  var tableEl = document.createElement("table");
+  tableEl.className = "table table-dark table-striped";
+  resultsContainer.appendChild(tableEl);
+  // create for loop to loop over numbers area and create table elements
+  for (var i = 0; i <= numArray.length; i++) {
+    // create table row
+    var tableRowEl = document.createElement("tr");
+    tableEl.appendChild(tableRowEl);
+    // create variable for current number
+    var currentNumber = numArray[i];
+    // create table data element for current number
+    var curNumTableData = document.createElement("td");
+    curNumTableData.textContent = currentNumber;
+    tableRowEl.appendChild(curNumTableData);
+    // break apart current number into digit array
+    var digits = [];
+    digits = currentNumber.toString().split("");
+    // parse digit string into integers
+    var parsedDigits = digits.map((x) => parseInt(x));
+    // add together parsed digits
+    const reducer = (accumulator, curr) => accumulator + curr;
+    var digitSum = parsedDigits.reduce(reducer);
+    // create table data element for result
+    var sumTableData = document.createElement("td");
+    sumTableData.textContent = digitSum;
+    tableRowEl.appendChild(sumTableData);
+    // check to see if digit sum is greater than starting number
+    if (digitSum > parsedTableNumber) {
+      // break apart digit sum
+      var newDigits = [];
+      newDigits = digitSum.toString().split("");
+      // parse new digits from string to integers
+      var parsedNewDigits = newDigits.map((x) => parseInt(x));
+      // add together parsed digits
+      var newSum = parsedNewDigits.reduce(reducer);
+      // create table data element for result
+      var newTableData = document.createElement("td");
+      newTableData.textContent = newSum;
+      tableRowEl.appendChild(newTableData);
+    }
+  }
 };
 
 formEl.addEventListener("submit", formSubmitHandler);
