@@ -20,7 +20,6 @@ var formSubmitHandler = function (event) {
   for (var i = parsedTableNumber; i <= maxNumber; i += 9) {
     numArray.push(i);
   }
-  console.log(numArray);
   // create header for table and add to dom
   var tableHeaderEl = document.createElement("h2");
   tableHeaderEl.className = "text-light text-center";
@@ -51,13 +50,16 @@ var formSubmitHandler = function (event) {
     // check to see if current number is greater than our main number
     if (currentNumber > parsedTableNumber) {
       // break apart current number into digit array
-      var digits = currentNumber.toString().split("");
-      //var digitsArray = digits.map(Number);
-      // create variable for sum of digits array
-      var digitSum = 0;
-      // create loop to add together digits
-      // for (var i = 0; i <= digitsArray.length; i++) {}
-      console.log(digits);
+      var digits = [];
+      digits = currentNumber.toString().split("");
+      // parse digit string into integers
+      var parsedDigits = digits.map((x) => parseInt(x));
+      console.log("parsedDigits: " + parsedDigits);
+      console.log("parsedDigits.length: " + parsedDigits.length);
+      // add together parsed digits
+      const reducer = (accumulator, curr) => accumulator + curr;
+      var digitSum = parsedDigits.reduce(reducer);
+      console.log("digitSum: " + digitSum);
     } else {
       // create another table data element for currentNumber
       var curNumSumTableData = document.createElement("td");
