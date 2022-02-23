@@ -44,7 +44,9 @@ var formSubmitHandler = function (event) {
     tableEl.appendChild(tableRowEl);
     // create variable for current number
     var currentNumber = numArray[i];
-    console.log(currentNumber);
+    // check to see if current number is greater than our main number
+    if (currentNumber > parsedTableNumber) {
+    }
   }
 
   // take each number from array and print the sum of each digit
