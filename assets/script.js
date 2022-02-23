@@ -72,6 +72,20 @@ var formSubmitHandler = function (event) {
       var newTableData = document.createElement("td");
       newTableData.textContent = newSum;
       tableRowEl.appendChild(newTableData);
+      // check to see if new sum is greater than starting number
+      if (newSum > parsedTableNumber) {
+        // break apart num sum
+        var lastDigits = [];
+        lastDigits = newSum.toString().split("");
+        // parse last digits from string to integers
+        var parsedLastDigits = lastDigits.map((x) => parseInt(x));
+        // add together parsed digits
+        var lastSum = parsedLastDigits.reduce(reducer);
+        // create table data element for last result
+        var lastTableData = document.createElement("td");
+        lastTableData.textContent = lastSum;
+        tableRowEl.appendChild(lastTableData);
+      }
     }
   }
 };
