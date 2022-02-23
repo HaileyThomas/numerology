@@ -1,4 +1,3 @@
-// DOM elements
 var formEl = document.querySelector("#main-form");
 var numInput = document.querySelector("#number-list");
 var maxInput = document.querySelector("#max-input");
@@ -7,7 +6,16 @@ var resultsContainer = document.querySelector("#table-container");
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
-  // check to see if results container already has results and clear
+  // check to see if results container already has a table and clear
+  if (tableDiv) {
+    // give name to state of element
+    var state1 = tableDiv.getAttribute("data-state");
+    // check to see if it is visible
+    if (state1 === "visible") {
+      // remove div
+      tableDiv.remove();
+    }
+  }
   // get value for number input and create variable for tableNumber
   var tableNumber = numInput.value;
   // get value for max input and create variable for maxNumber
@@ -20,22 +28,26 @@ var formSubmitHandler = function (event) {
   for (var i = parsedTableNumber; i <= maxNumber; i += 9) {
     numArray.push(i);
   }
+  // create div to hold table
+  var tableDiv = document.createElement("div");
+  tableDiv.setAttribute("data-state", "visible");
+  resultsContainer.appendChild(tableDiv);
   // create header for table and add to dom
   var tableHeaderEl = document.createElement("h2");
   tableHeaderEl.className = "text-light text-center";
   tableHeaderEl.textContent = "Table for Number " + parsedTableNumber;
-  resultsContainer.appendChild(tableHeaderEl);
+  tableDiv.appendChild(tableHeaderEl);
   // create variable for numbers array length
   var instances = numArray.length;
   // add instances to dom
   var instancesEl = document.createElement("p");
   instancesEl.className = "fs-5 text-light text-center";
   instancesEl.textContent = "Instances to " + maxNumber + " : " + instances;
-  resultsContainer.appendChild(instancesEl);
+  tableDiv.appendChild(instancesEl);
   // create table
   var tableEl = document.createElement("table");
   tableEl.className = "table border border-3 table-dark fs-4";
-  resultsContainer.appendChild(tableEl);
+  tableDiv.appendChild(tableEl);
   // create for loop to loop over numbers area and create table elements
   for (var i = 0; i <= numArray.length; i++) {
     // create table row
@@ -93,6 +105,9 @@ var formSubmitHandler = function (event) {
       }
     }
   }
+  //clear search bar after submit
+  document.getElementById("number-list").value = "";
+  document.getElementById("max-input").value = "";
 };
 
 formEl.addEventListener("submit", formSubmitHandler);
